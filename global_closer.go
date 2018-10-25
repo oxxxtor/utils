@@ -19,7 +19,7 @@ func (c *closer) Append(cl io.Closer) {
 }
 
 func (c *closer) Close() {
-	for i := 0; i < len(c.closer); i++ {
+	for i := len(c.closer) - 1; i >= 0; i-- {
 		c.closer[i].Close()
 	}
 }
